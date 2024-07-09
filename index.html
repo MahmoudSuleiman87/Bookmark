@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark App</title>
+    <!-- ! Favicon Link -->
+    <link rel="icon" href="images/bookmark.png" />
+    <!-- ! Fontawesome Library Link -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- ! Google Fonts Link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ! Bootstrap Framework Link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- ! Main Style Sheet Link -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="py-5">
+      <section>
+        <div
+          class="container d-flex flex-column align-items-center justify-content-center"
+        >
+          <h1 class="py-2 mb-2 position-relative">Bookmarker</h1>
+          <div
+            class="bookmark-container w-100 text-center py-4 mt-5 d-flex flex-column justify-content-center align-items-center gap-4 p-3"
+          >
+            <p class="mt-1 bookmark-heading">
+              <i class="fa-solid fa-bookmark"></i>
+              Bookmark your favorite sites
+              <i class="fa-solid fa-bookmark"></i>
+            </p>
+            <div class="w-100 text-start">
+              <i class="fa-solid fa-book-bookmark"></i>
+              <label class="fw-bold text-capitalize ps-1">site name</label>
+              <input
+                id="name"
+                type="text"
+                class="w-100 mt-2 p-2 form-control"
+                placeholder="Bookmark Name"
+                autocomplete="off"
+                oninput="validate(nameRegex,nameInput)"
+              />
+            </div>
+            <div class="w-100 text-start">
+              <i class="fa-solid fa-link"></i>
+              <label class="fw-bold ps-1">Site URL</label>
+              <input
+                id="url"
+                type="url"
+                class="w-100 mt-2 p-2 form-control"
+                placeholder="Website URL"
+                autocomplete="off"
+                oninput="validate(urlRegex,urlInput)"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-danger px-5 text-capitalize"
+              onclick="addBookmark()"
+            >
+              submit
+            </button>
+          </div>
+          <table class="table table-hover text-capitalize mt-4 text-center">
+            <thead>
+              <tr>
+                <th scope="col">index</th>
+                <th scope="col">website name</th>
+                <th scope="col">visit</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thead>
+            <tbody id="bookmarkContainer"></tbody>
+          </table>
+        </div>
+        <div
+          class="user-alret w-100 h-100 position-absolute start-0 top-0 d-flex justify-content-center align-items-center d-none"
+        >
+          <div class="inner bg-white p-4 rounded-2 shadow-lg">
+            <div
+              class="w-100 d-flex align-items-center justify-content-between mb-4"
+            >
+              <div class="circles d-flex">
+                <span class="rounded-circle me-2"></span>
+                <span class="rounded-circle me-2"></span>
+                <span class="rounded-circle me-2"></span>
+              </div>
+              <button class="btn border-0" id="closeBtn">
+                <i class="fa-solid fa-xmark close fs-3"></i>
+              </button>
+            </div>
+            <p class="alert-msg">
+              Site Name or Url is not valid, Please follow the rules below :
+            </p>
+            <ul class="list-unstyled">
+              <li class="pt-1">
+                <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+                Site name must contain at least 3 characters
+              </li>
+              <li class="pt-1">
+                <i class="fa-regular fa-circle-right p-2 text-danger"></i>
+                Site URL must be a valid one
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ! Bootstrap Framework Javscript File Link -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- ! Main Javascript File Link -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
+
+<!-- table class="table table-hover" -->
+<!-- <table class="table table-striped"> -->
